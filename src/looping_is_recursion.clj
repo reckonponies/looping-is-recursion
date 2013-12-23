@@ -67,11 +67,11 @@
 
 (defn cut-at-repetition [a-seq]
   (loop [a-seq a-seq
-         b-seq '()]
+         b-vec '[]]
          ;frst (first a-seq)
          ;scnd (second a-seq)]
     (cond
-     (= (first a-seq) (second a-seq)) b-seq
-     (> 2 (count a-seq)) b-seq
-     :else (recur (nthrest a-seq 2) (concat b-seq (take 2 a-seq))))))
+     (empty? a-seq) b-vec
+     (contains? (set b-vec) (first a-seq)) b-vec
+     :else (recur (rest a-seq) (conj b-vec (first a-seq))))))
 
