@@ -68,8 +68,6 @@
 (defn cut-at-repetition [a-seq]
   (loop [a-seq a-seq
          b-vec '[]]
-         ;frst (first a-seq)
-         ;scnd (second a-seq)]
     (cond
      (empty? a-seq) b-vec
      (contains? (set b-vec) (first a-seq)) b-vec
